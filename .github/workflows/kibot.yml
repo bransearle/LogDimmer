@@ -31,7 +31,7 @@ jobs:
          schema: 'LogDimmer.kicad_sch'
          board: 'LogDimmer.kicad_pcb'
     - name: upload results
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: AutomaticOutputs
         path: Output
