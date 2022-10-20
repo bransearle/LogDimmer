@@ -1,0 +1,34 @@
+name: AutomaticOutputs
+
+on:
+  push:
+    paths:
+      - '*.kicad_sch'
+      - '*.kicad_pcb'
+      - '**.kibot.yaml'
+      - '**kibot.yml'
+  pull_request:
+    paths:
+      - '*.kicad_sch'
+      - '*.kicad_pcb'
+      - '**.kibot.yaml'
+      - '**kibot.yml'
+
+jobs:
+  Autogen:
+    name: "Outputs"
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: INTI-CMNB/KiBot@v2_k6
+      with:
+         config: config.kibot.yaml
+         schema: 'LogDimmer.kicad_sch'
+         board: 'LogDimmer.kicad_pcb'
+    - name: upload results
+      uses: actions/upload-artifact@v2
+      with:
+        name: AutomaticOutputs
+        path: Output
