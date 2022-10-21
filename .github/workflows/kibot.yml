@@ -20,10 +20,13 @@ jobs:
     runs-on: ubuntu-latest
     container: ghcr.io/inti-cmnb/kicad6_auto_full:latest
 
-    steps:
+    steps:    
     - uses: actions/checkout@v3
       with:
         fetch-depth: '0'
+        
+    - name: Get short hash for output
+      run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
 
     - uses: INTI-CMNB/KiBot@v2_k6
       with:
@@ -33,5 +36,5 @@ jobs:
     - name: upload results
       uses: actions/upload-artifact@v3
       with:
-        name: AutomaticOutputs
+        name: AutomaticOutputs-$GITHUB_SHA
         path: Output
