@@ -39,5 +39,5 @@ jobs:
     - name: upload results
       uses: actions/upload-artifact@v3
       with:
-        name: AutomaticOutputs.$GITHUB_SHA
+        name: AutomaticOutputs $GITHUB_SHA_SHORT
         path: Output
