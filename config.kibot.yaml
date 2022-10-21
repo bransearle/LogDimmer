@@ -135,9 +135,9 @@ outputs:
   options:
     format: ZIP
     files:
-      - from_output: Output/Manufacturers/PCBWay_gerbers
+      - from_output: PCBWay_gerbers
         dest: /
-      - from_output: Output/Manufacturers/PCBWay_drill
+      - from_output: PCBWay_drill
         dest: /
 
 # BOM OUTPUTS
