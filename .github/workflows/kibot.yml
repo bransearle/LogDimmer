@@ -33,5 +33,5 @@ jobs:
     - name: upload results
       uses: actions/upload-artifact@v3
       with:
-        name: DesignOutputs.${{ env.GITHUB_SHA }}
+        name: DesignOutputs
         path: Output
